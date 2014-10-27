@@ -1,0 +1,13 @@
+Package: TOC
+Type: Package
+Title: TOC
+Version: 0.0-1
+Date: 2013-04-22
+Author: Robert G. Pontius <rpontius@clarku.edu>, Alí Santacruz
+Maintainer: Alí Santacruz <asantacruzdelgado@clarku.edu>
+Depends: R (>= 2.14.0)
+Imports: raster
+Description: This package contains functions for TOC
+License: GPL (>= 2)
+Encoding: latin1
+
