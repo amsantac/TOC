@@ -12,13 +12,13 @@ This package contains functions for TOC}
 Package: \tab TOC\cr
 Type: \tab Package\cr
 Version: \tab 0.0-1\cr
-Date: \tab 2013-04-22\cr
+Date: \tab 2014-10-29\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 }
 }
 \author{
-Robert G. Pontius <rpontius@clarku.edu>, Alí Santacruz
+Robert G. Pontius <rpontius@clarku.edu>, Alí Santacruz, Amin Tayyebi, Benoit Parmentier, Kangping Si
 
 Maintainer: Alí Santacruz <asantacruzdelgado@clarku.edu>
 }

@@ -35,12 +35,10 @@ a data.frame with TOC values
 \code{\link{TOCplot}}
 }
 \examples{
-\dontrun{
 input <- raster(system.file("external/Prob_Map2.rst", package="composite"))
 ref <- raster(system.file("external/Change_Map2b.rst", package="composite"))
 mask <- raster(system.file("external/MASK3.rst", package="composite"))
 tocd <- TOC(input, ref, mask, nthres=100, NAvalue=0)
-}
 }
 
 \keyword{ spatial }

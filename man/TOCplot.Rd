@@ -35,7 +35,6 @@ a TOC plot
 \code{\link{TOC}}
 }
 \examples{
-\dontrun{
 input <- raster(system.file("external/Prob_Map2.rst", package="composite"))
 ref <- raster(system.file("external/Change_Map2b.rst", package="composite"))
 mask <- raster(system.file("external/MASK3.rst", package="composite"))
@@ -45,7 +44,6 @@ ncells <- 1270089
 cellSize <- 1000
 population <- (ncells * cellSize^2)/1000^2
 TOCplot(tocd$truePositive, tocd$truePosRate, tocd$falsePositive, tocd$falsePosRate, population)
-}
 }
 
 \keyword{ spatial }
