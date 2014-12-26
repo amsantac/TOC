@@ -25,5 +25,5 @@ Maintainer: Alí Santacruz <asantacruzdelgado@clarku.edu>
 \keyword{ package }
 \keyword{ spatial }
 \seealso{
-\code{\link{TOC}}, \code{\link{TOCplot}} 
+\code{\link{TOC}}, \code{\link{plot.TOC}} 
 }

@@ -1,0 +1,31 @@
+file format : IDRISI Raster A.1
+file title  : 
+data type   : integer
+file type   : binary
+columns     : 1692
+rows        : 1476
+ref. system : spc83ma1
+ref. units  : m
+unit dist.  : 1.0000000
+min. X      : 213630.0000000
+max. X      : 264390.0000000
+min. Y      : 910970.0000000
+max. Y      : 955250.0000000
+pos'n error : unknown
+resolution  : 30
+min. value  : -1
+max. value  : 1
+display min : -1
+display max : 1
+value units : unspecified
+value error : unknown
+flag value  : none
+flag def'n  : none
+legend cats : 0
+lineage     : This file was created by the RECLASS module with the command line:
+lineage     : I*D:\asantacruzdelgado\PhD\Spring 2014\GEOG 360 - QEM\assignment 2\other\BORRAR1.rst*D:\asantacruzdelgado\PhD\Spring 2014\GEOG 360 - QEM\assignment 2\other\1985-1999BuiltGain2.rst*3*D:\asantacruzdelgado\PhD\Spring 2014\GEOG 360 - QEM\assignment 2\other\idrtemp.rcl*1
+lineage     : File D:\asantacruzdelgado\PhD\Spring 2014\GEOG 360 - QEM\assignment 2\other\idrtemp.rcl contains the following:
+lineage     : -1 -2 0.5
+lineage     : 0 0.5 1.5
+lineage     : 1 1.5 3
+lineage     : -9999
