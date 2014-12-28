@@ -6,7 +6,7 @@ Date: 2014-10-29
 Author: Robert G. Pontius <rpontius@clarku.edu>, Alí Santacruz, Amin Tayyebi, Benoit Parmentier, Kangping Si
 Maintainer: Alí Santacruz <asantacruzdelgado@clarku.edu>
 Depends: R (>= 2.14.0), raster, bit
-Description: This package contains functions for TOC
+Description: Construct the Total Operating Characteristic (TOC) Curve
 License: GPL (>= 2)
 Encoding: latin1
 

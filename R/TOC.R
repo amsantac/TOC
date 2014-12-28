@@ -1,5 +1,5 @@
 TOC <- function(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, ranking=FALSE, 
-P=NA, Q=NA, uncertainty=FALSE) {
+P=NA, Q=NA, uncertainty=TRUE) {
 
 if(!is.null(nthres) & !is.null(thres)) stop("Enter nthres OR thres as input, not both at the same time")
 
@@ -127,8 +127,8 @@ tocd2 <- tocd1[, c("Threshold", "hitsFalseAlarms", "Hits")]
 
 if(!is.na(P) & !is.na(Q)){
 tocd1$hitsFalseAlarmsP <- P * tocd1$Model1 + Q * tocd1$falseAlarms1
-tocd1$hitsP <- P * tocd1$Model1
-tocd2 <- tocd1[, c("Threshold", "hitsFalseAlarms", "Hits", "hitsFalseAlarmsP", "hitsP")]
+tocd1$HitsP <- P * tocd1$Model1
+tocd2 <- tocd1[, c("Threshold", "hitsFalseAlarms", "Hits", "hitsFalseAlarmsP", "HitsP")]
 }
 
 units <- strsplit(strsplit(CRSargs(crs(index)), "+units=")[[1]][2], " ")[[1]][1]
@@ -136,6 +136,9 @@ units <- strsplit(strsplit(CRSargs(crs(index)), "+units=")[[1]][2], " ")[[1]][1]
 id <- order(tocd2$hitsFalseAlarms)
 totalAUC <- sum(tocd2$Hits[-length(tocd2$Hits)] * diff(tocd2$hitsFalseAlarms)) + sum(diff(tocd2$hitsFalseAlarms[id])*diff(tocd2$Hits[id]))/2 - ((prevalence * population)^2)/2 
 AUC <- totalAUC/(population * prevalence * population - (prevalence * population)^2)
+
+colnames(tocd2)[2] <- "Hits+FalseAlarms"
+if (any(colnames(tocd2) == "histFalseAlarmsP")) colnames(tocd2)[4] <- "Hits+FalseAlarmsP"
 
 if(!uncertainty) return(list(TOCtable=tocd2, AUC=AUC, units=units, prevalence=prevalence*population, population=population))
 else

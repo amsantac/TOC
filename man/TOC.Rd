@@ -2,13 +2,14 @@
 \alias{TOC}
 
 \title{
-calculates TOC table
+Construct the table for the TOC curve
 }
 \description{
-calculates TOC
+Construct the table for the Total Operating Characteristic (TOC) curve
 }
 \usage{
-TOC(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, ranking=FALSE, P=NA, Q=NA, uncertainty=FALSE)
+TOC(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, ranking=FALSE, 
+P=NA, Q=NA, uncertainty=TRUE)
 }
 
 \arguments{
@@ -22,7 +23,7 @@ boolean Raster map
 mask Raster map
 }
   \item{nthres}{
-an optional integer indicating the number of thresholds to be evaluated for the TOC curve. See Details below
+an optional integer indicating the number of equal-interval thresholds to be evaluated for the TOC curve. See Details below
 }
   \item{thres}{
 an optional numeric vector of thresholds to be evaluated for the TOC curve. See Details below
@@ -40,11 +41,11 @@ count of reference presence observations in the population
 count of reference absence observations in the population
 }
   \item{uncertainty}{
-logical; default to FALSE. If TRUE, uncertainty in AUC calculation is computed and maximum AUC and minimum AUC, given the uncertainty, are provided in the output. See Details below
+logical; if TRUE, uncertainty in AUC calculation is computed and maximum AUC and minimum AUC, given the uncertainty, are provided in the output. See Details below
 }
 }
 \details{
-thresholds are calculated as the unique values of the index map after masking out NA values (default option), if neither nthres nor thres is provided. The default option can be time-consuming if the amount of unique values in the index map (after masking out NA values) is large (e.g., > 1000) 
+thresholds are calculated as the unique values of the index map after masking out NA values (default option), if neither nthres nor thres is provided. The default option can be time-consuming if the amount of unique values in the index map (after masking out NA values) is large (e.g., > 1000). In the latter case, the user may prefer to enter specified thresholds (with the thres argument), or to indicate the number of equal-interval thresholds to be evaluated for the TOC curve (with the nthres argument)
 }
 \value{
 a list of class TOC containing the TOC table, the area under the curve (AUC), the map coordinate units, the prevalence (as pixel counts), the population (as pixel counts). Maximum AUC and minimum AUC are also provided if uncertainty is set to TRUE

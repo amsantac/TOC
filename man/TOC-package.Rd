@@ -3,10 +3,10 @@
 \alias{TOC-package}
 \docType{package}
 \title{
-TOC
+Construct the Total Operating Characteristic (TOC) Curve
 }
 \description{
-This package contains functions for TOC}
+Construct the Total Operating Characteristic (TOC) Curve}
 \details{
 \tabular{ll}{
 Package: \tab TOC\cr

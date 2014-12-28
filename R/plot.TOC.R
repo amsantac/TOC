@@ -5,9 +5,9 @@ prevalence <- toc$prevalence/population
 units <- toc$units
 
 tocd <- toc$TOCtable
-if(!is.null(tocd$HitsP) & !is.null(tocd$hitsFalseAlarmsP)){
+if((!is.null(tocd$HitsP) & !is.null(tocd$"Hits+FalseAlarmsP"))==TRUE){
 tocd$Hits <- tocd$HitsP
-tocd$hitsFalseAlarms <- tocd$hitsFalseAlarmsP
+tocd$"Hits+FalseAlarms" <- tocd$"Hits+FalseAlarmsP"
 }
 
 
@@ -30,12 +30,12 @@ lines(c(0, population), rep(prevalence*population, 2), lwd=3, col=rgb(146,208,80
 # uniform
 lines(c(0, population), c(0, prevalence*population), lty="dotted", lwd=2, col=rgb(0,0,255, maxColorValue=255))
 
-#lines(tocd$hitsFalseAlarms, tocd$maximum, lty="dotdash", lwd=2, col=rgb(79,129,189, maxColorValue=255))
+#lines(tocd$"Hits+FalseAlarms", tocd$maximum, lty="dotdash", lwd=2, col=rgb(79,129,189, maxColorValue=255))
 
 # model
-lines(tocd$hitsFalseAlarms, tocd$Hits, lwd=2, col=rgb(255,0,0, maxColorValue=255))
-points(tocd$hitsFalseAlarms, tocd$Hits, pch=17, col=rgb(255,0,0, maxColorValue=255))
-if(labelThres == TRUE) text(tocd$hitsFalseAlarms, tocd$Hits, round(as.numeric(tocd$Threshold), digits))
+lines(tocd$"Hits+FalseAlarms", tocd$Hits, lwd=2, col=rgb(255,0,0, maxColorValue=255))
+points(tocd$"Hits+FalseAlarms", tocd$Hits, pch=17, col=rgb(255,0,0, maxColorValue=255))
+if(labelThres == TRUE) text(tocd$"Hits+FalseAlarms", tocd$Hits, round(as.numeric(tocd$Threshold), digits))
 
 par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 0, 0, 0), new = TRUE)
 plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")

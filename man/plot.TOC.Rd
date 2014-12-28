@@ -2,10 +2,10 @@
 \alias{plot.TOC}
 
 \title{
-generates a TOC plot
+Plot the TOC curve
 }
 \description{
-generates a TOC plot
+Plot the Total Operating Characteristic (TOC) curve
 }
 \usage{
 plot.TOC(toc, labelThres=FALSE, digits)
@@ -23,7 +23,7 @@ integer indicating the number of decimal places (round) or significant digits (s
 }
 }
 \value{
-a TOC plot
+a plot showing the TOC curve
 }
 \seealso{
 \code{\link{TOC}}
