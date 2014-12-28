@@ -138,7 +138,7 @@ totalAUC <- sum(tocd2$Hits[-length(tocd2$Hits)] * diff(tocd2$hitsFalseAlarms)) +
 AUC <- totalAUC/(population * prevalence * population - (prevalence * population)^2)
 
 colnames(tocd2)[2] <- "Hits+FalseAlarms"
-if (any(colnames(tocd2) == "histFalseAlarmsP")) colnames(tocd2)[4] <- "Hits+FalseAlarmsP"
+if (any(colnames(tocd2) == "hitsFalseAlarmsP")) colnames(tocd2)[4] <- "Hits+FalseAlarmsP"
 
 if(!uncertainty) return(list(TOCtable=tocd2, AUC=AUC, units=units, prevalence=prevalence*population, population=population))
 else
