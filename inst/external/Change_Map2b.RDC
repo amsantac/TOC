@@ -1,0 +1,26 @@
+file format : IDRISI Raster A.1
+file title  : 
+data type   : byte
+file type   : binary
+columns     : 1351
+rows        : 1691
+ref. system : plane
+ref. units  : m
+unit dist.  : 1.0000000
+min. X      : 399070.9394420
+max. X      : 1750070.9394420
+min. Y      : -1217376.6000527
+max. Y      : 473623.3999473
+pos'n error : unknown
+resolution  : unknown
+min. value  : 0
+max. value  : 2
+display min : 0
+display max : 2
+value units : unspecified
+value error : unknown
+flag value  : -9999
+flag def'n  : missing data
+legend cats : 0
+lineage     : This file was created by the ASSIGN module with the command line: 
+lineage     : D:\asantacruzdelgado\other\temp\composite\TOC_Pontius\MyRun\Change_Map2.rst*D:\asantacruzdelgado\PhD\Fall 2014\RA\NLCD\pie\Change_Map2b.rst*D:\asantacruzdelgado\other\temp\composite\TOC_Pontius\MyRun\conv_change_to_byte.avl

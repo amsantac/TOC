@@ -1,0 +1,30 @@
+file format : IDRISI Raster A.1
+file title  : 
+data type   : byte
+file type   : binary
+columns     : 1351
+rows        : 1691
+ref. system : plane
+ref. units  : m
+unit dist.  : 1.0000000
+min. X      : 399070.9394420
+max. X      : 1750070.9394420
+min. Y      : -1217376.6000527
+max. Y      : 473623.3999473
+pos'n error : unknown
+resolution  : unknown
+min. value  : 0
+max. value  : 1
+display min : 0
+display max : 1
+value units : unspecified
+value error : unknown
+flag value  : none
+flag def'n  : none
+legend cats : 0
+lineage     : This file was created by the RECLASS module with the command line: 
+lineage     : I*D:\asantacruzdelgado\PhD\Fall 2014\RA\NLCD\pie\MASK2.rst*D:\asantacruzdelgado\PhD\Fall 2014\RA\NLCD\pie\MASK3.rst*3*D:\asantacruzdelgado\PhD\Fall 2014\RA\NLCD\pie\idrtemp.rcl*1
+lineage     : File D:\asantacruzdelgado\PhD\Fall 2014\RA\NLCD\pie\idrtemp.rcl contains the following:
+lineage     :     0 2 7
+lineage     :     1 0 1
+lineage     :     -9999
