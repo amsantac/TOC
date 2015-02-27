@@ -152,8 +152,8 @@ tocd$Uniform <- tocd$falseAlarms1
 # tocd$minimum <- pmax(0, tocd$hitsFalseAlarms + tocd$hitsMisses - population)
 # tocd$Uniform1 <- tocd$hitsMisses * tocd$hitsFalseAlarms / population
 # 
-# tocd1 <- tocd
-# tocd1[nrow(tocd1), "Threshold"] <- paste("<= ", minInd)
+tocd1 <- tocd
+tocd1[nrow(tocd1), "Threshold"] <- paste("<= ", minInd)
 # 
 # tocd2 <- tocd1[, c("Threshold", "hitsFalseAlarms", "Hits")]
 # 
@@ -172,7 +172,7 @@ AUC <- sum(tocd$Model1[-length(tocd$Model1)] * diff(tocd$falseAlarms1)) + sum(di
 # colnames(tocd2)[2] <- "Hits+FalseAlarms"
 # if (any(colnames(tocd2) == "hitsFalseAlarmsP")) colnames(tocd2)[4] <- "Hits+FalseAlarmsP"
 
-if(!uncertainty) return(list(ROCtable=tocd, AUC=AUC, units=units))
+if(!uncertainty) return(list(ROCtable=tocd1, AUC=AUC, units=units))
 else
 {
 thist <- hist(unique(index), breaks=c(sort(tocd$Threshold)), plot=FALSE)
@@ -192,7 +192,7 @@ area <- (tocd[i,"falseAlarms1"] - tocd[i-1,"falseAlarms1"])*(tocd[i,"Model1"] - 
 uncertain <- uncertain + area
 }
 
-return(list(ROCtable=tocd[, -ncol(tocd)], AUC=AUC, units=units, maxAUC = AUC + uncertain/2, minAUC = AUC - uncertain/2))
+return(list(ROCtable=tocd1, AUC=AUC, units=units, maxAUC = AUC + uncertain/2, minAUC = AUC - uncertain/2))
 }
 
 }
