@@ -1,3 +1,4 @@
 export(ROC, TOC, plot.ROC, plot.TOC)
 import(raster)
 importFrom(bit, as.bit)
+importFrom(rgdal, CRSargs)

@@ -61,7 +61,8 @@ index <- raster(system.file("external/p_built01_suitability_1.rst", package="TOC
 boolean <- raster(system.file("external/BuiltGain1985_1999.rst", package="TOC"))
 mask <- raster(system.file("external/1985NonBuilt01.rst", package="TOC")) 
 
-# all unique values of the index map after applying the mask are used as thresholds (default option)
+# all unique values of the index map after applying the mask are used as thresholds (default 
+# option)
 rocd <- ROC(index, boolean, mask, NAval=0, uncertainty=TRUE)
 rocd
 
