@@ -10,6 +10,7 @@ install.packages("devtools")
 Then load the devtools package and install the TOC R package from Github:
 
 ```{r}
+library(devtools)
 install_github("amsantac/TOC")
 ```
 
