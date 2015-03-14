@@ -1,4 +1,4 @@
-plot.ROC <- function(roc, labelThres=FALSE, digits=3){
+plot.ROC <- function(roc, labelThres=FALSE, digits=3, ...){
 
 # population <- toc$population
 # prevalence <- toc$prevalence/population
@@ -23,7 +23,7 @@ par(mgp = c(1.5, 1, 0))
 
 plot(rocd$falseAlarms1, rocd$Model1, type="l", lty=1, 
      xlab=paste("False Alarms/(False Alarms + Correct Rejections)"), ylab=paste("Hits/(Hits+Misses)"), lwd=2, 
-     col=rgb(255,0,0, maxColorValue=255), bty="n", xaxt="n", yaxt="n", xlim=c(0,1), ylim=c(0,1), asp=1)
+     col=rgb(255,0,0, maxColorValue=255), bty="n", xaxt="n", yaxt="n", xlim=c(0,1), ylim=c(0,1), asp=1, ...)
 axis(1, pos=0)
 axis(2, pos=0)
 points(rocd$falseAlarms1, rocd$Model1, pch=17, col=rgb(255,0,0, maxColorValue=255))

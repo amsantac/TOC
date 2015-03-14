@@ -8,7 +8,7 @@ Plot the ROC curve
 Plot the Relative Operating Characteristic (ROC) curve
 }
 \usage{
-plot.ROC(roc, labelThres=FALSE, digits)
+plot.ROC(roc, labelThres=FALSE, digits, ...)
 }
 
 \arguments{
@@ -20,6 +20,9 @@ logical, default to FALSE. If TRUE, thresholds are labeled in the ROC plot
 }
   \item{digits}{
 integer indicating the number of decimal places (round) or significant digits (signif) to be used for labeling the thresholds. Negative values are allowed. See Details in the round function
+}
+  \item{...}{
+additional parameters to be passed to \code{plot}
 }
 }
 \value{

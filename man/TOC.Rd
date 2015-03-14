@@ -29,7 +29,7 @@ an optional integer indicating the number of equal-interval thresholds to be eva
 an optional numeric vector of thresholds to be evaluated for the TOC curve. See Details below
 }
   \item{NAval}{
-value for nodata
+value for nodata (NA values) in the mask map
 }
   \item{ranking}{
 logical; default to FALSE. If TRUE, cell values are ranked to solve ties

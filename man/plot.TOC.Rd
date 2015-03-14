@@ -8,7 +8,7 @@ Plot the TOC curve
 Plot the Total Operating Characteristic (TOC) curve
 }
 \usage{
-plot.TOC(toc, labelThres=FALSE, digits)
+plot.TOC(toc, labelThres=FALSE, digits, ...)
 }
 
 \arguments{
@@ -20,6 +20,9 @@ logical, default to FALSE. If TRUE, thresholds are labeled in the TOC plot
 }
   \item{digits}{
 integer indicating the number of decimal places (round) or significant digits (signif) to be used for labeling the thresholds. Negative values are allowed. See Details in the round function
+}
+  \item{...}{
+additional parameters to be passed to \code{plot}
 }
 }
 \value{
