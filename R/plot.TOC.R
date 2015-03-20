@@ -17,7 +17,7 @@ par(oma = c(0, 0, 0, 4))
 par(mgp = c(1.5, 1, 0))
 
 plot(c(0, population*(1-prevalence), population), c(0, 0, prevalence * population), type="l", lty="dashed", 
-     xlab=paste("Hits+False Alarms (square ", units, ")", sep=""), ylab=paste("Hits (square ", units, ")", sep=""), 
+     xlab=paste0("Hits+False Alarms (", units, ")"), ylab=paste0("Hits (", units, ")"), 
      lwd=2, col=rgb(128,100,162, maxColorValue=255), bty="n", xaxt="n", yaxt="n", xlim=c(0, 1.05*population), 
      ylim=c(0, 1.05*prevalence * population), asp=1/prevalence, ...)
 
