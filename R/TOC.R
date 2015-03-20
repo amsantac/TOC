@@ -162,7 +162,7 @@ tocd2 <- tocd1[, c("Threshold", "hitsFalseAlarms", "Hits", "hitsFalseAlarmsP", "
 }
 
 # extract map units for plotting purposes with plot.TOC
-units <- strsplit(strsplit(CRSargs(crs(index)), "+units=")[[1]][2], " ")[[1]][1]
+units <- paste("square", strsplit(strsplit(CRSargs(crs(index)), "+units=")[[1]][2], " ")[[1]][1])
 
 # calculate totalAUC in squared map units and AUC as a proportion 
 id <- order(tocd2$hitsFalseAlarms)
@@ -173,7 +173,8 @@ colnames(tocd2)[2] <- "Hits+FalseAlarms"
 if (any(colnames(tocd2) == "hitsFalseAlarmsP")) colnames(tocd2)[4] <- "Hits+FalseAlarmsP"
 
 # if uncertainty calculation is not requested by the user
-if(!uncertainty) return(list(TOCtable=tocd2, AUC=AUC, units=units, prevalence=prevalence*population, population=population))
+if(!uncertainty) return(list(TOCtable=tocd2, prevalence=prevalence*population, population=population,
+                             units=units, AUC=AUC))
 
 # if uncertainty calculation is requested by the user
 else
@@ -195,7 +196,8 @@ area <- (tocd[i,"falseAlarms1"] - tocd[i-1,"falseAlarms1"])*(tocd[i,"Model1"] - 
 uncertain <- uncertain + area
 }
 
-return(list(TOCtable=tocd2, AUC=AUC, units=units, prevalence=prevalence*population, population=population, maxAUC = AUC + uncertain/2, minAUC = AUC - uncertain/2))
+return(list(TOCtable=tocd2, prevalence=prevalence*population, population=population, units=units, AUC=AUC,  
+            maxAUC = AUC + uncertain/2, minAUC = AUC - uncertain/2)) 
 }
 
 }

@@ -18,9 +18,9 @@ LazyLoad: \tab yes\cr
 }
 }
 \author{
-Robert G. Pontius <rpontius@clarku.edu>, Alí Santacruz, Amin Tayyebi, Benoit Parmentier, Kangping Si
+Robert G. Pontius <rpontius@clarku.edu>, Ali Santacruz, Amin Tayyebi, Benoit Parmentier, Kangping Si
 
-Maintainer: Alí Santacruz <asantacruzdelgado@clarku.edu>
+Maintainer: Ali Santacruz <asantacruzdelgado@clarku.edu>
 }
 \keyword{ package }
 \keyword{ spatial }

@@ -8,7 +8,7 @@ Plot the TOC curve
 Plot the Total Operating Characteristic (TOC) curve
 }
 \usage{
-plot.TOC(toc, labelThres=FALSE, digits, ...)
+plot.TOC(toc, labelThres=FALSE, digits, modelLeg="Model", ...)
 }
 
 \arguments{
@@ -21,7 +21,10 @@ logical, default to FALSE. If TRUE, thresholds are labeled in the TOC plot
   \item{digits}{
 integer indicating the number of decimal places (round) or significant digits (signif) to be used for labeling the thresholds. Negative values are allowed. See Details in the round function
 }
-  \item{...}{
+  \item{modelLeg}{
+a character string for labeling the model in the legend 
+}
+\item{...}{
 additional parameters to be passed to \code{plot}
 }
 }
@@ -43,7 +46,7 @@ plot.TOC(tocd, labelThres=FALSE)
 index <- raster(system.file("external/Prob_Map2.rst", package="TOC"))
 boolean <- raster(system.file("external/Change_Map2b.rst", package="TOC"))
 mask <- raster(system.file("external/MASK3.rst", package="TOC"))
-tocd <- TOC(index, boolean, mask, nthres=10, NAval=0, uncertainty=TRUE)
+tocd <- TOC(index, boolean, mask, nthres=100, NAval=0, uncertainty=TRUE)
 tocd
 plot.TOC(tocd, labelThres=FALSE)
 }

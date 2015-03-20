@@ -8,7 +8,7 @@ Plot the ROC curve
 Plot the Relative Operating Characteristic (ROC) curve
 }
 \usage{
-plot.ROC(roc, labelThres=FALSE, digits, ...)
+plot.ROC(roc, labelThres=FALSE, digits, modelLeg="Model", ...)
 }
 
 \arguments{
@@ -20,6 +20,9 @@ logical, default to FALSE. If TRUE, thresholds are labeled in the ROC plot
 }
   \item{digits}{
 integer indicating the number of decimal places (round) or significant digits (signif) to be used for labeling the thresholds. Negative values are allowed. See Details in the round function
+}
+  \item{modelLeg}{
+a string for labeling the model in the legend 
 }
   \item{...}{
 additional parameters to be passed to \code{plot}
@@ -43,7 +46,7 @@ plot.ROC(rocd, labelThres=FALSE)
 index <- raster(system.file("external/Prob_Map2.rst", package="TOC"))
 boolean <- raster(system.file("external/Change_Map2b.rst", package="TOC"))
 mask <- raster(system.file("external/MASK3.rst", package="TOC"))
-rocd <- ROC(index, boolean, mask, nthres=10, NAval=0, uncertainty=TRUE)
+rocd <- ROC(index, boolean, mask, nthres=100, NAval=0, uncertainty=TRUE)
 rocd
 plot.ROC(rocd, labelThres=FALSE)
 }
