@@ -26,13 +26,13 @@ mask <- raster(system.file("external/MASK3.rst", package="TOC"))
 The TOC and ROC curves can be generated and plotted using the following instructions:
 
 ```{r}
-tocd <- TOC(index, boolean, mask, NAval=0, nthres=100, uncertainty=TRUE, progress=TRUE)
+tocd <- TOC(index, boolean, mask, nthres=100, progress=TRUE)
 tocd
-plot.TOC(tocd)
+plot(tocd)
 
-rocd <- ROC(index, boolean, mask, NAval=0, nthres=100, uncertainty=TRUE, progress=TRUE)
+rocd <- ROC(index, boolean, mask, nthres=100, progress=TRUE)
 rocd
-plot.ROC(rocd)
+plot(rocd)
 ```
 
 For help on the functions implemented in the TOC package see the [PDF reference manual](https://github.com/amsantac/TOC/blob/master/TOC-manual.pdf?raw=true) or run the following command lines in R:

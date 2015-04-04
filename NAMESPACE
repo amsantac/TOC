@@ -1,4 +1,6 @@
-export(plot.ROC, plot.TOC, ROC, TOC, TOCscaling)
+export(ROC, scaling, TOC)
 import(raster)
+import(methods)
 importFrom(bit, as.bit)
 importFrom(rgdal, CRSargs)
+exportClasses(Roc, Toc)

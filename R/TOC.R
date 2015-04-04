@@ -1,5 +1,4 @@
-TOC <- function(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, ranking=FALSE, 
-P=NA, Q=NA, uncertainty=TRUE, progress=FALSE) {
+TOC <- function(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, P=NA, Q=NA, progress=FALSE) {
 
 if(!is.null(nthres) & !is.null(thres)) stop("Enter nthres OR thres as input, not both at the same time")
 
@@ -18,8 +17,6 @@ indval <- getValues(index)
 
 # extract total number of cells with ones and zeros in the boolean map vector
 boolvals <- boolval[!is.na(boolval)]
-#ones.bool <- table(boolval)[[2]]
-#zeros.bool <- table(boolval)[[1]]
 ones.bool <- sum(as.bit(boolvals))
 zeros.bool <- length(boolvals) - ones.bool
 
@@ -30,11 +27,9 @@ func_logical3   <- function(v1,v2){
     return(c(r1, r2))
 }
 
-# if the user does not select the ranking algorithm for solving ties
-if(!ranking){
-  
-  # extract only no NA values from the boolean and index vectors
-  # length of (not NA) boolean and index vectors must be equal as the mask was applied previously
+
+# extract only no NA values from the boolean and index vectors
+# length of (not NA) boolean and index vectors must be equal as the mask was applied previously
 boolval <- boolval[!is.na(boolval)]
 indval <- indval[!is.na(indval)]
 
@@ -47,7 +42,7 @@ maxInd <- max(indval, na.rm=TRUE)
 ifelse(!is.null(thres), minInd <- min(thres), minInd <- min(indval, na.rm=TRUE))
 
 ifelse(!is.null(nthres), newThres <- (maxInd - minInd)/(nthres-2)*(0:(nthres-2)) + minInd, ifelse(!is.null(thres), 
-                                newThres <- thres, newThres <- unique(indval)))
+                                                                                                  newThres <- thres, newThres <- unique(indval)))
 newThres <- sort(newThres, decreasing=TRUE)
 
 # create results data.frame
@@ -57,66 +52,25 @@ res <- cbind(newThres, "Hits"=0, "HitsRate"=0, "falseAlarms"=0, "falseAlarmsRate
 # and then perform the crosstab with the boolean vector
 
 for (j in 2:(nrow(res))){
-i <- newThres[j]
-zeroIndVal[which(indval > i)]  <- 1
-
-xb <- as.bit(zeroIndVal)
-yb <- as.bit(boolval)
-crsstb <- func_logical3(xb,yb)
-
-res[j,"Hits"] <- crsstb[1]
-res[j,"HitsRate"] <- crsstb[1]/ones.bool*100
-res[j,"falseAlarms"] <- crsstb[2]
-res[j,"falseAlarmsRate"] <- crsstb[2]/zeros.bool*100
-zeroIndVal <- indval*0
-
-if(progress){
-  pb <- txtProgressBar(min = 0, max = 100, style = 3)
-  setTxtProgressBar(pb, round(j/nrow(res)*100, 0))
+  i <- newThres[j]
+  zeroIndVal[which(indval > i)]  <- 1
+  
+  xb <- as.bit(zeroIndVal)
+  yb <- as.bit(boolval)
+  crsstb <- func_logical3(xb,yb)
+  
+  res[j,"Hits"] <- crsstb[1]
+  res[j,"HitsRate"] <- crsstb[1]/ones.bool*100
+  res[j,"falseAlarms"] <- crsstb[2]
+  res[j,"falseAlarmsRate"] <- crsstb[2]/zeros.bool*100
+  zeroIndVal <- indval*0
+  
+  if(progress){
+    pb <- txtProgressBar(min = 0, max = 100, style = 3)
+    setTxtProgressBar(pb, round(j/nrow(res)*100, 0))
+  }
 }
-}
-}
 
-# if the user selects the ranking algorithm for solving ties
-if(ranking){
-srted.bool <- sort(boolval, index.return=TRUE, na.last=NA)
-srted.ind <- sort(indval, index.return=TRUE, na.last=NA)
-
-maxRank <- max(srted.ind$ix)
-minRank <- min(srted.ind$ix)
-srted.ind$indexRank <- 1:maxRank
-
-mrg.ir <- merge(srted.bool, srted.ind, by.x="ix", by.y="ix")
-mrg.ir$thresB <- 0
-
-indval <- indval[!is.na(indval)]
-minInd <- min(indval, na.rm=TRUE)
-
-newThres <- maxRank/nthres*(1:nthres)
-newThres <- sort(newThres, decreasing=TRUE)
-
-res <- cbind(newThres, "Hits"=0, "HitsRate"=0, "falseAlarms"=0, "falseAlarmsRate"=0)
-
-for (j in 2:(nrow(res))){
-i <- newThres[j]
-mrg.ir[which(mrg.ir$indexRank > i), "thresB"]  <- 1
-
-xb <- as.bit(mrg.ir$thresB)
-yb <- as.bit(mrg.ir$x.x)
-crsstb <- func_logical3(xb,yb)
-
-res[j,"Hits"] <- crsstb[1]
-res[j,"HitsRate"] <- crsstb[1]/ones.bool*100
-res[j,"falseAlarms"] <- crsstb[2]
-res[j,"falseAlarmsRate"] <- crsstb[2]/zeros.bool*100
-mrg.ir$thresB <- 0
-
-if(progress){
-  pb <- txtProgressBar(min = 0, max = 100, style = 3)
-  setTxtProgressBar(pb, round(j/nrow(res)*100, 0))
-}
-}
-}
 
 tocd <- as.data.frame(rbind(res, c(NA, ones.bool, 100, zeros.bool, 100)))
 
@@ -172,16 +126,10 @@ AUC <- totalAUC/(population * prevalence * population - (prevalence * population
 colnames(tocd2)[2] <- "Hits+FalseAlarms"
 if (any(colnames(tocd2) == "hitsFalseAlarmsP")) colnames(tocd2)[4] <- "Hits+FalseAlarmsP"
 
-# if uncertainty calculation is not requested by the user
-if(!uncertainty) return(list(TOCtable=tocd2, prevalence=prevalence*population, population=population,
-                             units=units, AUC=AUC))
-
-# if uncertainty calculation is requested by the user
-else
-{
 thist <- hist(unique(index), breaks=c(sort(tocd$Threshold)), plot=FALSE)
 tocd$counts <- c(0, thist$counts[length(thist$counts):1], 0)
 
+# calculate uncertainty
 uncertain <- 0
 for (i in 2:(nrow(tocd)-2)){
 if(tocd[i,"counts"] > 1) {
@@ -196,8 +144,9 @@ area <- (tocd[i,"falseAlarms1"] - tocd[i-1,"falseAlarms1"])*(tocd[i,"Model1"] - 
 uncertain <- uncertain + area
 }
 
-return(list(TOCtable=tocd2, prevalence=prevalence*population, population=population, units=units, AUC=AUC,  
-            maxAUC = AUC + uncertain/2, minAUC = AUC - uncertain/2)) 
-}
+# output
+output <- new("Toc", table=tocd2, prevalence=prevalence*population, population=population, units=units, AUC=AUC,  
+               maxAUC = AUC + uncertain/2, minAUC = AUC - uncertain/2)
+return(output) 
 
 }

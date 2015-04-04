@@ -1,29 +1,28 @@
 \name{TOC-package}
 \alias{TOC-package}
-\alias{TOC-package}
 \docType{package}
 \title{
-Construct the Total Operating Characteristic (TOC) Curve
+Total Operating Characteristic (TOC) Curve
 }
 \description{
-Construct the Total Operating Characteristic (TOC) Curve}
+Construction of the Total Operating Characteristic (TOC) Curve and the Receiver (aka Relative) Operating Characteristic (ROC) Curve for spatial data.}
 \details{
 \tabular{ll}{
 Package: \tab TOC\cr
 Type: \tab Package\cr
 Version: \tab 0.0-1\cr
-Date: \tab 2014-10-29\cr
+Date: \tab 2015-03-28\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 }
 }
 \author{
-Robert G. Pontius <rpontius@clarku.edu>, Ali Santacruz, Amin Tayyebi, Benoit Parmentier, Kangping Si
+Robert G. Pontius <rpontius@clarku.edu>, Alí Santacruz, Amin Tayyebi, Benoit Parmentier, Kangping Si
 
-Maintainer: Ali Santacruz <asantacruzdelgado@clarku.edu>
+Maintainer: Alí Santacruz <amsantac@unal.edu.co>
 }
 \keyword{ package }
 \keyword{ spatial }
 \seealso{
-\code{\link{TOC}}, \code{\link{plot.TOC}} 
+\code{\link{TOC}}, \code{\link{plot}} 
 }
