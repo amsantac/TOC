@@ -7,11 +7,10 @@ To install the TOC R package from this account on Github, first install the devt
 install.packages("devtools")
 ```
 
-Then load the devtools package and install the TOC R package from Github:
+Then install the TOC R package from Github using the devtools package:
 
 ```{r}
-library(devtools)
-install_github("amsantac/TOC")
+devtools::install_github("amsantac/TOC")
 ```
 
 Now the TOC package can be loaded, as well as sample data included in the package:
