@@ -15,7 +15,10 @@ AUC <- sum(tocd$Model1[-length(tocd$Model1)] * diff(tocd$falseAlarms1)) +
   sum(diff(tocd$falseAlarms1[id])*diff(tocd$Model1[id]))/2 
 
 # calculate uncertainty
-if(!is.null(mask)) index <- index*mask
+if(!is.null(mask)) {
+  mask[mask == NAval] <- NA
+  index <- index*mask
+}
 uncertain <- uncertainty(index, tocd)
 
 # output
