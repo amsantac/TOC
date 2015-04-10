@@ -1,26 +1,32 @@
 \name{ROC}
+
+\docType{methods}
+
 \alias{ROC}
+\alias{ROC,numeric,numeric-method}
+\alias{ROC,RasterLayer,RasterLayer-method}
 
 \title{
 Construct the table for the ROC curve
 }
 \description{
-Construct the table for the Relative Operating Characteristic (ROC) curve
+Construct the table for the Relative Operating Characteristic (ROC) curve for spatial or non-spatial data
 }
 \usage{
-ROC(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, P=NA, Q=NA, 
-progress=FALSE)
+\S4method{ROC}{numeric,numeric}(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, progress=FALSE)
+
+\S4method{ROC}{RasterLayer,RasterLayer}(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, progress=FALSE)
 }
 
 \arguments{
   \item{index}{
-index Raster map
+index object of class numeric or RasterLayer
 }
   \item{boolean}{
-boolean Raster map
+boolean object of class numeric or RasterLayer
 }
   \item{mask}{
-mask Raster map
+mask object of class numeric or RasterLayer
 }
   \item{nthres}{
 an optional integer indicating the number of equal-interval thresholds to be evaluated for the ROC curve. See Details below
@@ -29,20 +35,14 @@ an optional integer indicating the number of equal-interval thresholds to be eva
 an optional numeric vector of thresholds to be evaluated for the ROC curve. See Details below
 }
   \item{NAval}{
-value for nodata (NA values) in the mask map
-}
-  \item{P}{
-count of reference presence observations in the population
-}
-  \item{Q}{
-count of reference absence observations in the population
+value for nodata (NA values) in the mask object
 }
   \item{progress}{
 logical; if TRUE, a progress bar is shown
 }
 }
 \details{
-thresholds are calculated as the unique values of the index map after masking out NA values (default option), if neither nthres nor thres is provided. The default option can be time-consuming if the amount of unique values in the index map (after masking out NA values) is large (e.g., > 1000). In the latter case, the user may prefer to enter specified thresholds (with the \code{thres} argument), or to indicate the number of equal-interval thresholds to be evaluated for the ROC curve (with the \code{nthres} argument)
+thresholds are calculated as the unique values of the index object after masking out NA values (default option), if neither nthres nor thres is provided. The default option can be time-consuming if the amount of unique values in the index object (after masking out NA values) is large (e.g., > 1000). In the latter case, the user may prefer to enter specified thresholds (with the \code{thres} argument), or to indicate the number of equal-interval thresholds to be evaluated for the ROC curve (with the \code{nthres} argument)
 }
 \value{
 an object of class \code{Roc} containing the ROC table, the area under the curve (AUC), maximum AUC and minimum AUC
@@ -86,4 +86,5 @@ rocd
 
 }
 
+\keyword{methods}
 \keyword{ spatial }

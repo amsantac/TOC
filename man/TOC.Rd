@@ -1,26 +1,33 @@
 \name{TOC}
+
+\docType{methods}
+
 \alias{TOC}
+\alias{TOC,numeric,numeric-method}
+\alias{TOC,RasterLayer,RasterLayer-method}
 
 \title{
 Construct the table for the TOC curve
 }
 \description{
-Construct the table for the Total Operating Characteristic (TOC) curve
+Construct the table for the Total Operating Characteristic (TOC) curve for spatial or non-spatial data
 }
 \usage{
-TOC(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, P=NA, Q=NA, 
-progress=FALSE)
+\S4method{TOC}{numeric,numeric}(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, P=NA, Q=NA, 
+progress=FALSE, units=NULL)
+\S4method{TOC}{RasterLayer,RasterLayer}(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, P=NA, Q=NA, 
+    progress=FALSE, units=NULL)
 }
 
 \arguments{
   \item{index}{
-index Raster map
+index object of class numeric or RasterLayer
 }
   \item{boolean}{
-boolean Raster map
+boolean object of class numeric or RasterLayer
 }
   \item{mask}{
-mask Raster map
+mask object of class numeric or RasterLayer
 }
   \item{nthres}{
 an optional integer indicating the number of equal-interval thresholds to be evaluated for the TOC curve. See Details below
@@ -29,7 +36,7 @@ an optional integer indicating the number of equal-interval thresholds to be eva
 an optional numeric vector of thresholds to be evaluated for the TOC curve. See Details below
 }
   \item{NAval}{
-value for nodata (NA values) in the mask map
+value for nodata (NA values) in the mask object
 }
   \item{P}{
 count of reference presence observations in the population
@@ -40,12 +47,15 @@ count of reference absence observations in the population
   \item{progress}{
 logical; if TRUE, a progress bar is shown
 }
+  \item{units}{
+character string indicating data units
+}
 }
 \details{
-thresholds are calculated as the unique values of the index map after masking out NA values (default option), if neither nthres nor thres is provided. The default option can be time-consuming if the amount of unique values in the index map (after masking out NA values) is large (e.g., > 1000). In the latter case, the user may prefer to enter specified thresholds (with the \code{thres} argument), or to indicate the number of equal-interval thresholds to be evaluated for the TOC curve (with the \code{nthres} argument)
+thresholds are calculated as the unique values of the index object after masking out NA values (default option), if neither nthres nor thres is provided. The default option can be time-consuming if the amount of unique values in the index object (after masking out NA values) is large (e.g., > 1000). In the latter case, the user may prefer to enter specified thresholds (with the \code{thres} argument), or to indicate the number of equal-interval thresholds to be evaluated for the TOC curve (with the \code{nthres} argument)
 }
 \value{
-an object of class \code{Toc} containing the TOC table, the area under the curve (AUC), maximum AUC and minimum AUC, the prevalence, the population and the data units (for data in the TOC table, prevalence and population) 
+an object of class \code{Toc} containing the TOC table, the area under the curve (AUC), maximum AUC and minimum AUC, the prevalence, the population and the data units (for data in the TOC table slot, and the prevalence and population slots) 
 }
 \seealso{
 \code{\link{plot}}
@@ -84,4 +94,5 @@ tocd
 }
 }
 
+\keyword{methods}
 \keyword{ spatial }

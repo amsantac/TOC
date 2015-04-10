@@ -1,4 +1,4 @@
-.plotROC <- function(object, labelThres=FALSE, digits=3, modelLeg="Model", ...){
+.plotROC <- function(object, labelThres=FALSE, modelLeg="Model", digits=3, nticks=5, ...){
 
 rocd <- object@table
 
@@ -9,8 +9,8 @@ par(mgp = c(1.5, 1, 0))
 plot(rocd$falseAlarms1, rocd$Model1, type="l", lty=1, 
      xlab=paste("False Alarms/(False Alarms + Correct Rejections)"), ylab=paste("Hits/(Hits+Misses)"), lwd=2, 
      col=rgb(255,0,0, maxColorValue=255), bty="n", xaxt="n", yaxt="n", xlim=c(0,1), ylim=c(0,1), asp=1, ...)
-axis(1, pos=0, xaxp = c(0, 1, 5))
-axis(2, pos=0, xaxp = c(0, 1, 5))
+axis(1, pos=0, xaxp = c(0, 1, nticks), cex.axis=0.9, ...)
+axis(2, pos=0, xaxp = c(0, 1, nticks), cex.axis=0.9, ...)
 points(rocd$falseAlarms1, rocd$Model1, pch=17, col=rgb(255,0,0, maxColorValue=255))
 
 # maximum

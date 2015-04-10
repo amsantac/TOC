@@ -9,14 +9,14 @@
 \title{Plot an object of class Toc or Roc}
 
 \description{
-Plot a Total Operating Characteristic (TOC) curve or a Relative Operating Characteristic (ROC)
+Plot a Total Operating Characteristic (TOC) curve or a Relative Operating Characteristic (ROC) curve
 }
 
 \usage{
-\S4method{plot}{Toc}(x, labelThres=FALSE, digits=3, modelLeg="Model", ...)
+\S4method{plot}{Toc}(x, labelThres=FALSE, modelLeg="Model", digits=3, nticks=5, ...)
    
 
-\S4method{plot}{Roc}(x, labelThres=FALSE, digits=3, modelLeg="Model", ...)
+\S4method{plot}{Roc}(x, labelThres=FALSE, modelLeg="Model", digits=3, ...)
 }
 
 \arguments{
@@ -24,14 +24,17 @@ Plot a Total Operating Characteristic (TOC) curve or a Relative Operating Charac
   \item{labelThres}{
 logical, default to FALSE. If TRUE, thresholds are labeled in the TOC plot
 }
-  \item{digits}{
-integer indicating the number of decimal places (round) or significant digits (signif) to be used for labeling the thresholds and the numeric axes. Negative values are allowed. See Details in the \code{round} function
-}
   \item{modelLeg}{
 a character string for labeling the model in the legend 
 }
+  \item{digits}{
+integer indicating the number of decimal places (round) or significant digits (signif) to be used for labeling the thresholds and the numeric axes. Negative values are allowed. See Details in the \code{round} function
+}
+  \item{nticks}{
+number of tickmarcks to be drawn along the axes
+}
 \item{...}{
-additional parameters to be passed to \code{plot}
+additional parameters to be passed to \code{plot} or \code{axis} 
 }
 }
 

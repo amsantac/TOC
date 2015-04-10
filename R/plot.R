@@ -10,16 +10,16 @@ if (!isGeneric("plot")) {
 }	
 
 setMethod("plot", signature='Roc', 
-          definition = function(x, labelThres=FALSE, digits=3, modelLeg="Model", ...)  {
-            .plotROC(x, labelThres=labelThres, digits=digits, modelLeg=modelLeg, ...)
+          definition = function(x, labelThres=FALSE, modelLeg="Model", digits=3, ...)  {
+            .plotROC(x, labelThres=labelThres, modelLeg=modelLeg, digits=digits, ...)
             return(invisible(NULL))
           }
 )
 
 
 setMethod("plot", signature ='Toc', 
-          definition = function(x, labelThres=FALSE, digits=3, modelLeg="Model", ...)  {
-            .plotTOC(x, labelThres=labelThres, digits=digits, modelLeg=modelLeg, ...)
+          definition = function(x, labelThres=FALSE, modelLeg="Model", digits=3, nticks=5, ...)  {
+            .plotTOC(x, labelThres=labelThres, modelLeg=modelLeg, digits=digits, nticks=nticks, ...)
             return(invisible(NULL))
           }
 )	

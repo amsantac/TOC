@@ -1,5 +1,11 @@
-.plotTOC <- function(object, labelThres=FALSE, digits=1, modelLeg="Model", ...){
+.plotTOC <- function(object, labelThres=FALSE, modelLeg="Model", digits=3, nticks=5, ...){
 
+  old.opt <- options()
+  options(digits=digits)
+  old.par <- par(no.readonly = TRUE)
+  par(oma = c(0, 0, 0, 4))
+  par(mgp = c(1.5, 1, 0))
+  
 population <- object@population
 prevalence <- object@prevalence/population
 units <- object@units
@@ -10,18 +16,17 @@ tocd$Hits <- tocd$HitsP
 tocd$"Hits+FalseAlarms" <- tocd$"Hits+FalseAlarmsP"
 }
 
-
-old.par <- par(no.readonly = TRUE)
-par(oma = c(0, 0, 0, 4))
-par(mgp = c(1.5, 1, 0))
-
 plot(c(0, population*(1-prevalence), population), c(0, 0, prevalence * population), type="l", lty="dashed", 
      xlab=paste0("Hits+False Alarms (", units, ")"), ylab=paste0("Hits (", units, ")"), 
-     lwd=2, col=rgb(128,100,162, maxColorValue=255), bty="n", xaxt="n", yaxt="n", xlim=c(0, 1.05*population), 
-     ylim=c(0, 1.05*prevalence * population), asp=1/prevalence, ...)
+     lwd=2, col=rgb(128,100,162, maxColorValue=255), bty="n", xaxt="n", yaxt="n", xlim=c(0, population), 
+     ylim=c(0, prevalence * population), asp=1/prevalence, ...)
 
-axis(1, pos = 0, xaxp = c(0, population, 5))
-axis(2, pos = 0, yaxp = c(0, prevalence * population, 5))
+xlabels <- c(0, format((1:nticks)*population/nticks, digits))
+ylabels <- c(0, format((1:nticks)*prevalence * population/nticks, digits))
+
+axis(1, pos = 0, labels=xlabels, at=xlabels, xaxp = c(0, population, nticks), cex.axis=0.9, ...)
+axis(2, pos = 0, labels=ylabels, at=ylabels, yaxp = c(0, prevalence * population, nticks), cex.axis=0.9, ...)
+
 
 # maximum
 lines(c(0, prevalence * population, population), c(0, prevalence * population, prevalence * population), 
@@ -48,5 +53,6 @@ legend("right", c("Hits+Misses", "Maximum", modelLeg, "Uniform", "Minimum"),
        lty = c(1, 4, 1, 3, 2), pch = c(NA, NA, 17, NA, NA),
        merge = TRUE, bty="n", lwd=c(3, 2, 2, 2, 2))
 par(old.par)
+options(old.opt)
 
 }

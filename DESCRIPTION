@@ -1,12 +1,12 @@
 Package: TOC
 Type: Package
-Title: Total Operating Characteristic (TOC) Curve
-Version: 0.0-1
+Title: Total Operating Characteristic (TOC) Curve and ROC Curve
+Version: 0.0-2
 Date: 2015-03-28
 Author: Robert G. Pontius <rpontius@clarku.edu>, Ali Santacruz, Amin Tayyebi, Benoit Parmentier, Kangping Si
 Maintainer: Ali Santacruz <amsantac@unal.edu.co>
 Depends: R (>= 2.14.0), raster, bit, rgdal, methods
-Description: Construction of the Total Operating Characteristic (TOC) Curve and the Receiver (aka Relative) Operating Characteristic (ROC) Curve for spatial data.
+Description: Construction of the Total Operating Characteristic (TOC) Curve and the Receiver (aka Relative) Operating Characteristic (ROC) Curve for spatial and non-spatial data.
 License: GPL (>= 2)
 Encoding: UTF-8
 

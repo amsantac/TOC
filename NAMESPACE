@@ -1,4 +1,4 @@
-export(ROC, scaling, TOC)
+export(ROC, roctable, scaling, TOC, uncertainty)
 import(raster)
 import(methods)
 importFrom(bit, as.bit)
