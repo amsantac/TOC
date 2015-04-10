@@ -14,9 +14,9 @@ Construct the table for the Total Operating Characteristic (TOC) curve for spati
 }
 \usage{
 \S4method{TOC}{numeric,numeric}(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, P=NA, Q=NA, 
-progress=FALSE, units=NULL)
+progress=FALSE, units=character(0))
 \S4method{TOC}{RasterLayer,RasterLayer}(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, P=NA, Q=NA, 
-    progress=FALSE, units=NULL)
+    progress=FALSE)
 }
 
 \arguments{
