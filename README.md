@@ -34,7 +34,7 @@ rocd
 plot(rocd)
 ```
 
-For help on the functions implemented in the TOC package see the [PDF reference manual](https://github.com/amsantac/TOC/blob/master/TOC-manual.pdf?raw=true) or run the following command lines in R:
+For help on the functions implemented in the TOC package see the [reference manual](/TOC-manual.pdf) or run the following command lines in R:
 
 ```{r}
 ?'TOC-package'
