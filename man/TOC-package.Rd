@@ -11,15 +11,15 @@ Construction of the Total Operating Characteristic (TOC) Curve and the Receiver 
 Package: \tab TOC\cr
 Type: \tab Package\cr
 Version: \tab 0.0-2\cr
-Date: \tab 2015-03-28\cr
+Date: \tab 2015-06-02\cr
 License: \tab GPL (>= 2)\cr
 LazyLoad: \tab yes\cr
 }
 }
 \author{
-Robert G. Pontius <rpontius@clarku.edu>, Ali Santacruz, Amin Tayyebi, Benoit Parmentier, Kangping Si
+Robert G. Pontius <rpontius@clarku.edu>, Alí Santacruz, Amin Tayyebi, Benoit Parmentier, Kangping Si
 
-Maintainer: Ali Santacruz <amsantac@unal.edu.co>
+Maintainer: Alí Santacruz <amsantac@unal.edu.co>
 }
 \keyword{ package }
 \keyword{ spatial }

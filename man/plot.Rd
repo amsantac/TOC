@@ -13,10 +13,12 @@ Plot a Total Operating Characteristic (TOC) curve or a Relative Operating Charac
 }
 
 \usage{
-\S4method{plot}{Toc}(x, labelThres=FALSE, modelLeg="Model", digits=3, nticks=5, ...)
+\S4method{plot}{Toc}(x, labelThres=FALSE, modelLeg="Model", digits=3, nticks=5, digitsL=1, 
+posL = NULL, offsetL = 0.5, ...)
    
 
-\S4method{plot}{Roc}(x, labelThres=FALSE, modelLeg="Model", digits=3, ...)
+\S4method{plot}{Roc}(x, labelThres=FALSE, modelLeg="Model", digits=3, nticks=5, digitsL=1, 
+posL = NULL, offsetL = 0.5, ...)
 }
 
 \arguments{
@@ -28,13 +30,22 @@ logical, default to FALSE. If TRUE, thresholds are labeled in the TOC plot
 a character string for labeling the model in the legend 
 }
   \item{digits}{
-integer indicating the number of decimal places (round) or significant digits (signif) to be used for labeling the thresholds and the numeric axes. Negative values are allowed. See Details in the \code{round} function
+integer indicating the number of decimal places (round) or significant digits (signif) to be used for labeling the numeric axes. Negative values are allowed. See Details in the \code{round} function
 }
   \item{nticks}{
 number of tickmarcks to be drawn along the axes
 }
+  \item{digitsL}{
+integer indicating the number of decimal places (round) or significant digits (signif) to be used for labeling the thresholds. Negative values are allowed. See Details in the \code{round} function
+}
+  \item{posL}{ 
+a position specifier for the text labels. Values of 1, 2, 3 and 4, respectively indicate positions below, to the left of, above and to the right of the corresponding coordinates
+}
+  \item{offsetL}{
+when posL is specified, this value gives the offset of the label from the corresponding coordinate in fractions of a character width
+}
 \item{...}{
-additional parameters to be passed to \code{plot} or \code{axis} 
+additional parameters to be passed to \code{plot}, \code{axis} or \code{text} 
 }
 }
 
@@ -45,24 +56,17 @@ a plot showing the TOC or the ROC curves
 \code{\link{TOC}}, \code{\link{ROC}}
 }
 \examples{
-\dontrun{ 
-index <- raster("p_built01_suitability_1.rst")
-boolean <- raster("BuiltGain1985_1999.rst")
-mask <- raster("1985NonBuilt01.rst")
-tocd <- TOC(index, boolean, mask)
-plot(tocd, main="TOC curve")
-rocd <- ROC(index, boolean, mask)
-plot(rocd, main="ROC curve")
-}
-\dontrun{ 
-index <- raster("Prob_Map2.rst")
-boolean <- raster("Change_Map2b.rst")
-mask <- raster("MASK3.rst")
-tocd <- TOC(index, boolean, mask, nthres=100)
-plot(tocd, main="TOC curve")
-rocd <- ROC(index, boolean, mask, nthres=100)
-plot(rocd, main="ROC curve")
-}
+index <- raster(system.file("external/Prob_Map2.rst", package = "TOC"))
+boolean <- raster(system.file("external/Change_Map2b.rst", package = "TOC"))
+mask <- raster(system.file("external/MASK4.rst", package="TOC"))
+tocd <- TOC(index, boolean, mask, nthres = 100)
+plot(tocd, main = "TOC curve")
+rocd <- ROC(index, boolean, mask, nthres = 100)
+plot(rocd, main = "ROC curve")
+
+# label the thresholds in the plot
+tocd <- TOC(index, boolean, mask, nthres = 10)
+plot(tocd, labelThres = TRUE, cex = 0.8, posL = 4)
 }
 
 \keyword{methods}

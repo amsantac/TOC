@@ -1,4 +1,4 @@
-.plotTOC <- function(object, labelThres=FALSE, modelLeg="Model", digits=3, nticks=5, ...){
+.plotTOC <- function(object, labelThres=FALSE, modelLeg="Model", digits=3, nticks=5, digitsL=1, posL = NULL, offsetL = 0.5, ...){
 
   old.opt <- options()
   options(digits=digits)
@@ -43,7 +43,7 @@ lines(c(0, population), c(0, prevalence*population), lty="dotted", lwd=2, col=rg
 # model
 lines(tocd$"Hits+FalseAlarms", tocd$Hits, lwd=2, col=rgb(255,0,0, maxColorValue=255))
 points(tocd$"Hits+FalseAlarms", tocd$Hits, pch=17, col=rgb(255,0,0, maxColorValue=255))
-if(labelThres == TRUE) text(tocd$"Hits+FalseAlarms", tocd$Hits, round(as.numeric(tocd$Threshold), digits))
+if(labelThres == TRUE) text(tocd$"Hits+FalseAlarms", tocd$Hits, round(as.numeric(tocd$Threshold), digitsL), pos = posL, offset = offsetL, ...)
 
 par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 0, 0, 0), new = TRUE)
 plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")

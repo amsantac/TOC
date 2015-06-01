@@ -61,36 +61,26 @@ an object of class \code{Toc} containing the TOC table, the area under the curve
 \code{\link{plot}}
 }
 \examples{
-\dontrun{
-index <- raster("p_built01_suitability_1.rst")
-boolean <- raster("BuiltGain1985_1999.rst")
-mask <- raster("1985NonBuilt01.rst")
-
-# all unique values of the index map after applying the mask are used as thresholds (default 
-# option)
-tocd <- TOC(index, boolean, mask)
-tocd
+index <- raster(system.file("external/Prob_Map2.rst", package = "TOC"))
+boolean <- raster(system.file("external/Change_Map2b.rst", package = "TOC"))
+mask <- raster(system.file("external/MASK4.rst", package = "TOC"))
 
 # thresholds can also be defined by indicating the number of equal-interval thresholds 
-tocd <- TOC(index, boolean, mask, nthres=10)
+tocd <- TOC(index, boolean, mask, nthres = 100)
 tocd
 
 # A vector of thresholds can be used to define the thresholds
-tocd <- TOC(index, boolean, mask, thres=seq(0, 100, by=10))
+thresholds <- seq(min(unique(index)), max(unique(index)) + 1, 
+                  by = ceiling(max(unique(index))/10))
+tocd <- TOC(index, boolean, mask, thres = thresholds)
 tocd
-}
+
 \dontrun{
-index <- raster("Prob_Map2.rst")
-boolean <- raster("Change_Map2b.rst")
-mask <- raster("MASK3.rst")
-
-# thresholds can also be defined by indicating the number of equal-interval thresholds 
-tocd <- TOC(index, boolean, mask, nthres=100)
-tocd
-
-# A vector of thresholds can be used to define the thresholds
-tocd <- TOC(index, boolean, mask, thres=seq(0, 100, by=10))
-tocd
+# generate the TOC curve using non-spatial data (i.e., numeric vectors)
+index <- getValues(index)
+boolean <- getValues(boolean)
+mask <- getValues(mask)
+tocd <- TOC(index, boolean, mask, nthres = 100)
 }
 }
 

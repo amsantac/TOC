@@ -1,4 +1,4 @@
-.plotROC <- function(object, labelThres=FALSE, modelLeg="Model", digits=3, nticks=5, ...){
+.plotROC <- function(object, labelThres=FALSE, modelLeg="Model", digits=3, nticks=5, digitsL=1, posL = NULL, offsetL = 0.5, ...){
 
 rocd <- object@table
 
@@ -19,7 +19,7 @@ lines(c(0, 1, 1), c(1, 1, 0), lwd=1, col="black")
 # uniform
 lines(c(0, 1), c(0, 1), lty="dotted", lwd=2, col=rgb(0,0,255, maxColorValue=255))
 
-if(labelThres == TRUE) text(rocd$falseAlarms1, rocd$Model1, round(as.numeric(rocd$Threshold), digits))
+if(labelThres == TRUE) text(rocd$falseAlarms1, rocd$Model1, round(as.numeric(rocd$Threshold), digitsL), pos = posL, offset = offsetL, ...)
 
 par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 0, 0, 0), new = TRUE)
 plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")

@@ -1,26 +1,27 @@
-file format : Idrisi Raster A.1
+file format : IDRISI Raster A.1
 file title  : 
 data type   : real
 file type   : binary
-columns     : 1351
-rows        : 1691
+columns     : 337
+rows        : 422
 ref. system : plane
 ref. units  : m
-unit dist.  : 1
+unit dist.  : 1.0000000
 min. X      : 399070.9394420
-max. X      : 1750070.9394420
-min. Y      : -1217376.6000527
+max. X      : 1747070.9394420
+min. Y      : -1214376.6000527
 max. Y      : 473623.3999473
-pos'n error : unspecified
-resolution  : 1000.0000000
-min. value  : -9999
-max. value  : 96032
-display min : -9999
-display max : 96032
+pos'n error : unknown
+resolution  : 4000.0000000
+min. value  : -9999.0000000
+max. value  : 95499.0000000
+display min : -9999.0000000
+display max : 96032.0000000
 value units : unspecified
-value error : unspecified
-flag value  : -9999
+value error : unknown
+flag value  : -9999.0000000
 flag def'n  : missing data
 legend cats : 0
-lineage     : 
+lineage     : This file was created by CONTRACT with the command line: 
+lineage     : 1*1*C:\amsantac\other\git\TOC\inst\external\Prob_Map2.rst*C:\amsantac\PhD\Research\dissertation\data\selva\Prob_Map2.rst*1*4*4
 comment     : 

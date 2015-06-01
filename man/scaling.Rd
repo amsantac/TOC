@@ -34,28 +34,15 @@ an object of class TOC
 \code{\link{TOC}}, \code{\link{ROC}}
 }
 \examples{
-\dontrun{
-index <- raster("p_built01_suitability_1.rst")
-boolean <- raster("BuiltGain1985_1999.rst")
-mask <- raster("1985NonBuilt01.rst")
-tocd <- TOC(index, boolean, mask)
+index <- raster(system.file("external/Prob_Map2.rst", package = "TOC"))
+boolean <- raster(system.file("external/Change_Map2b.rst", package = "TOC"))
+mask <- raster(system.file("external/MASK4.rst", package = "TOC"))
+tocd <- TOC(index, boolean, mask, nthres = 100)
 plot(tocd)
 
 # scale units from square m to square km
-tocd_sqkm <- scaling(tocd, scalingFactor=1000000, newUnits="square km")
+tocd_sqkm <- scaling(tocd, scalingFactor = 1000000, newUnits = "square km")
 plot(tocd_sqkm) 
-}
-\dontrun{
-index <- raster("Prob_Map2.rst")
-boolean <- raster("Change_Map2b.rst")
-mask <- raster("MASK3.rst")
-tocd <- TOC(index, boolean, mask, nthres=100)
-plot(tocd)
-
-# scale units from square m to square km
-tocd_sqkm <- scaling(tocd, scalingFactor=1000000, newUnits="square km")
-plot(tocd_sqkm) 
-}
 }
 
 \keyword{methods}
