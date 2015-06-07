@@ -22,7 +22,7 @@ if(!is.null(mask)) {
 uncertain <- uncertainty(index, tocd)
 
 # output
-output <- new("Roc", table=tocd1[, c(1,3,5:7)], AUC=AUC, maxAUC = AUC + uncertain/2, minAUC = AUC - uncertain/2)
+output <- new("Roc", table=tocd1[, c(1,6,7)], AUC=AUC, maxAUC = AUC + uncertain/2, minAUC = AUC - uncertain/2)
 
 return(output) 
 

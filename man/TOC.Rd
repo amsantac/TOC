@@ -10,7 +10,7 @@
 Construct the table for the TOC curve
 }
 \description{
-Construct the table for the Total Operating Characteristic (TOC) curve for spatial or non-spatial data
+Construct the table for the Total Operating Characteristic (TOC) curve for spatial or non-spatial data. The TOC method is a modification of the ROC method which measures the ability of an index variable to diagnose either presence or absence of a characteristic. The diagnosis depends on whether the value of an index variable is above a threshold. Each threshold generates a two-by-two contingency table, which contains four entries: hits (H), misses (M), false alarms (FA), and correct rejections (CR). While ROC shows for each threshold only two ratios, H/(H + M) and FA/(FA + CR), TOC reveals the size of every entry in the contingency table for each threshold (Pontius and Si 2014).
 }
 \usage{
 \S4method{TOC}{numeric,numeric}(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, P=NA, Q=NA, 
@@ -57,6 +57,11 @@ thresholds are calculated as the unique values of the index object after masking
 \value{
 an object of class \code{Toc} containing the TOC table, the area under the curve (AUC), maximum AUC and minimum AUC, the prevalence, the population and the data units (for data in the TOC table slot, and the prevalence and population slots) 
 }
+\references{
+Pontius Jr., R.G., Kangpin, Si. 2014. \emph{The total operating characteristic to measure diagnostic ability for multiple thresholds}. International Journal of Geographical Information Science 28 (3): 570-583.
+
+Pontius, G., Parmentier, B. 2014. \emph{Recommendations for using the Relative Operating Characteristic (ROC)}. Landscape Ecology 29 (3): 367-382.
+}
 \seealso{
 \code{\link{plot}}
 }
@@ -65,18 +70,24 @@ index <- raster(system.file("external/Prob_Map2.rst", package = "TOC"))
 boolean <- raster(system.file("external/Change_Map2b.rst", package = "TOC"))
 mask <- raster(system.file("external/MASK4.rst", package = "TOC"))
 
-# thresholds can also be defined by indicating the number of equal-interval thresholds 
+## thresholds can be defined by indicating the number of equal-interval thresholds 
 tocd <- TOC(index, boolean, mask, nthres = 100)
 tocd
 
-# A vector of thresholds can be used to define the thresholds
+## a vector of thresholds can also be used to define the thresholds
 thresholds <- seq(min(unique(index)), max(unique(index)) + 1, 
                   by = ceiling(max(unique(index))/10))
 tocd <- TOC(index, boolean, mask, thres = thresholds)
 tocd
 
+## all the unique values of the index object can be evaluated as thresholds (default option)
 \dontrun{
-# generate the TOC curve using non-spatial data (i.e., numeric vectors)
+tocd <- TOC(index, boolean, mask, progress = TRUE)
+tocd
+}
+
+## generate the TOC curve using non-spatial data (i.e., an object of class numeric)
+\dontrun{
 index <- getValues(index)
 boolean <- getValues(boolean)
 mask <- getValues(mask)

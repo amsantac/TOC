@@ -1,12 +1,12 @@
 Package: TOC
 Type: Package
-Title: Total Operating Characteristic (TOC) Curve and ROC Curve
+Title: Total Operating Characteristic Curve and ROC Curve
 Version: 0.0-2
-Date: 2015-06-02
+Date: 2015-06-05
 Author: Robert G. Pontius <rpontius@clarku.edu>, Alí Santacruz, Amin Tayyebi, Benoit Parmentier, Kangping Si
 Maintainer: Alí Santacruz <amsantac@unal.edu.co>
 Depends: R (>= 2.14.0), raster, bit, rgdal, methods
-Description: Construction of the Total Operating Characteristic (TOC) Curve and the Receiver (aka Relative) Operating Characteristic (ROC) Curve for spatial and non-spatial data.
+Description: Construction of the Total Operating Characteristic (TOC) Curve and the Receiver (aka Relative) Operating Characteristic (ROC) Curve for spatial and non-spatial data. The TOC method is a modification of the ROC method which measures the ability of an index variable to diagnose either presence or absence of a characteristic. The diagnosis depends on whether the value of an index variable is above a threshold. Each threshold generates a two-by-two contingency table, which contains four entries: hits (H), misses (M), false alarms (FA), and correct rejections (CR). While ROC shows for each threshold only two ratios, H/(H + M) and FA/(FA + CR), TOC reveals the size of every entry in the contingency table for each threshold (Pontius Jr., R.G., Si, K. 2014. The total operating characteristic to measure diagnostic ability for multiple thresholds. Int. J. Geogr. Inf. Sci. 28 (3), 570-583). 
 License: GPL (>= 2)
 Encoding: latin1
 

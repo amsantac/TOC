@@ -40,7 +40,7 @@ mask <- raster(system.file("external/MASK4.rst", package = "TOC"))
 tocd <- TOC(index, boolean, mask, nthres = 100)
 plot(tocd)
 
-# scale units from square m to square km
+## scale units from square m to square km
 tocd_sqkm <- scaling(tocd, scalingFactor = 1000000, newUnits = "square km")
 plot(tocd_sqkm) 
 }
