@@ -1,19 +1,25 @@
 TOC R package repository
 ======
 
-To install the TOC R package from this account on Github, first install the devtools R package using the following command line in R (on Windows OS, run R as Administrator):
+The official release of the TOC R package can be found at [CRAN](http://cran.r-project.org/package=TOC). To install from CRAN enter the following command line in R (on Windows OS, run R as Administrator): 
+
+```{r}
+install.packages("TOC")
+```
+
+To install the development version of the TOC R package from this account on Github, first install the devtools R package using the following command:
 
 ```{r}
 install.packages("devtools")
 ```
 
-Then install the TOC R package from Github using the devtools package:
+Then install the TOC package from Github using the devtools package:
 
 ```{r}
 devtools::install_github("amsantac/TOC")
 ```
 
-Now the TOC package can be loaded, as well as sample data included in the package:
+Once installed, the TOC package can be loaded. The package includes sample data to run the examples:
 
 ```{r}
 library(TOC)
