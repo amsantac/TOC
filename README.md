@@ -1,13 +1,17 @@
-TOC R package repository
+TOC R package
 ======
 
-The official release of the TOC R package can be found at [CRAN](http://cran.r-project.org/package=TOC). To install from CRAN enter the following command line in R (on Windows OS, run R as Administrator): 
+**1. Installation**
+
+The TOC R package can be installed from CRAN, the official R packages repository, or from this GitHub repository.
+
+The official release of the TOC R package can be found on [CRAN](http://cran.r-project.org/package=TOC). To install from CRAN enter the following command line in R (on Windows OS, run R as Administrator): 
 
 ```{r}
 install.packages("TOC")
 ```
 
-To install the development version of the TOC R package from this account on Github, first install the devtools R package using the following command:
+To install the development version of the TOC R package from this account on GitHub, first install the devtools R package using the following command:
 
 ```{r}
 install.packages("devtools")
@@ -19,7 +23,9 @@ Then install the TOC package from Github using the devtools package:
 devtools::install_github("amsantac/TOC")
 ```
 
-Once installed, the TOC package can be loaded. The package includes sample data to run the examples:
+** 2. Construction of the TOC curve**
+
+Once installed from CRAN or GitHub, the TOC package can be loaded. The package includes sample data to run the examples:
 
 ```{r}
 library(TOC)
@@ -46,4 +52,7 @@ For help on the functions implemented in the TOC package see the [reference manu
 ?'TOC-package'
 ?TOC
 ```
-An interactive web application for TOC developed with [Shiny](http://shiny.rstudio.com) can be found [here](https://amsantac.shinyapps.io/TOCapp). The [Shiny TOC app](https://amsantac.shinyapps.io/TOCapp) allows to construct the TOC and ROC curves for spatial and non-spatial data. 
+
+** 3. Shiny TOC web app**
+
+An interactive web application for TOC developed with [Shiny](http://shiny.rstudio.com) can be found [here](https://amsantac.shinyapps.io/TOCapp). The [Shiny TOC app](https://amsantac.shinyapps.io/TOCapp) allows the construction of the TOC and ROC curves for spatial and non-spatial data. 
