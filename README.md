@@ -23,7 +23,7 @@ Then install the TOC package from Github using the devtools package:
 devtools::install_github("amsantac/TOC")
 ```
 
-** 2. Construction of the TOC curve**
+**2. Construction of the TOC curve**
 
 Once installed from CRAN or GitHub, the TOC package can be loaded. The package includes sample data to run the examples:
 
@@ -53,6 +53,6 @@ For help on the functions implemented in the TOC package see the [reference manu
 ?TOC
 ```
 
-** 3. Shiny TOC web app**
+**3. Shiny TOC web app**
 
 An interactive web application for TOC developed with [Shiny](http://shiny.rstudio.com) can be found [here](https://amsantac.shinyapps.io/TOCapp). The [Shiny TOC app](https://amsantac.shinyapps.io/TOCapp) allows the construction of the TOC and ROC curves for spatial and non-spatial data. 
