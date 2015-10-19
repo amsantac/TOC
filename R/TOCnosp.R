@@ -1,6 +1,7 @@
 .TOCnosp <- function(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, P=NA, Q=NA, progress=FALSE,  
                      ones.bool=NULL, zeros.bool=NULL, population=NULL, units=character(0)) {
 
+  boolval <- boolean
   # calculate population if not given
   if (is.null(population)){
     if(!is.null(mask)){
