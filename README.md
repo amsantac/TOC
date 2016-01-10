@@ -55,4 +55,4 @@ For help on the functions implemented in the TOC package see the [reference manu
 
 **3. Shiny TOC web app**
 
-An interactive web application for TOC developed with [Shiny](http://shiny.rstudio.com) can be found [here](https://amsantac.shinyapps.io/TOCapp). The [Shiny TOC app](https://amsantac.shinyapps.io/TOCapp) allows the construction of the TOC and ROC curves for spatial and non-spatial data. 
+An interactive web application for TOC developed with [Shiny](http://shiny.rstudio.com) can be found [here](https://amsantac.shinyapps.io/TOCapp). The [Shiny TOC app](https://amsantac.shinyapps.io/TOCapp) allows the construction of the TOC and ROC curves for spatial and non-spatial data through a graphical user interface. 

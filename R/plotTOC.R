@@ -16,7 +16,7 @@ tocd$Hits <- tocd$HitsP
 tocd$"Hits+FalseAlarms" <- tocd$"Hits+FalseAlarmsP"
 }
 
-plot(c(0, population*(1-prevalence), population), c(0, 0, prevalence * population), type="l", lty="dashed", 
+graphics::plot(c(0, population*(1-prevalence), population), c(0, 0, prevalence * population), type="l", lty="dashed", 
      xlab=paste0("Hits+False Alarms (", units, ")"), ylab=paste0("Hits (", units, ")"), 
      lwd=2, col=rgb(128,100,162, maxColorValue=255), bty="n", xaxt="n", yaxt="n", xlim=c(0, population), 
      ylim=c(0, prevalence * population), asp=1/prevalence, ...)
@@ -46,7 +46,7 @@ points(tocd$"Hits+FalseAlarms", tocd$Hits, pch=17, col=rgb(255,0,0, maxColorValu
 if(labelThres == TRUE) text(tocd$"Hits+FalseAlarms", tocd$Hits, round(as.numeric(tocd$Threshold), digitsL), pos = posL, offset = offsetL, ...)
 
 par(fig = c(0, 1, 0, 1), oma = c(0, 0, 0, 0), mar = c(0, 0, 0, 0), new = TRUE)
-plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
+graphics::plot(0, 0, type = "n", bty = "n", xaxt = "n", yaxt = "n")
 
 legend("right", c("Hits+Misses", "Maximum", modelLeg, "Uniform", "Minimum"), 
        col = c(rgb(146,208,80, maxColorValue=255), rgb(79,129,189, maxColorValue=255), rgb(255,0,0, maxColorValue=255), rgb(0,0,255, maxColorValue=255), rgb(128,100,162, maxColorValue=255)), 
