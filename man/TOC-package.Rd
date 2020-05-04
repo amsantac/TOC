@@ -10,16 +10,16 @@ Construction of the Total Operating Characteristic (TOC) Curve and the Receiver 
 \tabular{ll}{
 Package: \tab TOC\cr
 Type: \tab Package\cr
-Version: \tab 0.0-4\cr
-Date: \tab 2015-12-29\cr
-License: \tab GPL (>= 2)\cr
+Version: \tab 0.0-5\cr
+Date: \tab 2020-05-04\cr
+License: \tab GPL-3\cr
 LazyLoad: \tab yes\cr
 }
 }
 \author{
-Robert G. Pontius <rpontius@clarku.edu>, Alí Santacruz, Amin Tayyebi, Benoit Parmentier, Kangping Si
+Robert G. Pontius, Ali Santacruz, Amin Tayyebi, Benoit Parmentier, Kangping Si
 
-Maintainer: Alí Santacruz <amsantac@unal.edu.co>
+Maintainer: Ali Santacruz
 }
 \references{
 Pontius Jr., R.G., Kangpin, Si. 2014. \emph{The total operating characteristic to measure diagnostic ability for multiple thresholds}. International Journal of Geographical Information Science 28 (3): 570-583.

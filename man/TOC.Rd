@@ -52,7 +52,7 @@ character string indicating data units
 }
 }
 \details{
-thresholds are calculated as the unique values of the index object after masking out NA values (default option), if neither nthres nor thres is provided. The default option can be time-consuming if the amount of unique values in the index object (after masking out NA values) is large (e.g., > 1000). In the latter case, the user may prefer to enter specified thresholds (with the \code{thres} argument), or to indicate the number of equal-interval thresholds to be evaluated for the TOC curve (with the \code{nthres} argument)
+thresholds are calculated as the unique values of the index object after masking out NA values (default option), if neither nthres nor thres is provided. The default option can be time-consuming if the amount of unique values in the index object (after masking out NA values) is large (e.g., greater than 1000). In the latter case, the user may prefer to enter specified thresholds (with the \code{thres} argument), or to indicate the number of equal-interval thresholds to be evaluated for the TOC curve (with the \code{nthres} argument)
 }
 \value{
 an object of class \code{Toc} containing the TOC table, the area under the curve (AUC), maximum AUC and minimum AUC, the prevalence, the population and the data units (for data in the TOC table slot, and the prevalence and population slots) 
