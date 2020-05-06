@@ -48,9 +48,9 @@ thresholds are calculated as the unique values of the index object after masking
 an object of class \code{Roc} containing the ROC table, the area under the curve (AUC), maximum AUC and minimum AUC
 }
 \references{
-Pontius Jr., R.G., Kangpin, Si. 2014. \emph{The total operating characteristic to measure diagnostic ability for multiple thresholds}. International Journal of Geographical Information Science 28 (3): 570-583.
+Pontius Jr., R.G., Kangpin, Si. 2014. \emph{The total operating characteristic to measure diagnostic ability for multiple thresholds}. International Journal of Geographical Information Science 28 (3): 570-583. <doi:10.1080/13658816.2013.862623>
 
-Pontius, G., Parmentier, B. 2014. \emph{Recommendations for using the Relative Operating Characteristic (ROC)}. Landscape Ecology 29 (3): 367-382.
+Pontius, G., Parmentier, B. 2014. \emph{Recommendations for using the Relative Operating Characteristic (ROC)}. Landscape Ecology 29 (3): 367-382. <doi:10.1007/s10980-013-9984-8>
 }
 \seealso{
 \code{\link{plot}}

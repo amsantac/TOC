@@ -10,7 +10,7 @@
 Construct the table for the TOC curve
 }
 \description{
-Construct the table for the Total Operating Characteristic (TOC) curve for spatial or non-spatial data. The TOC method is a modification of the ROC method which measures the ability of an index variable to diagnose either presence or absence of a characteristic. The diagnosis depends on whether the value of an index variable is above a threshold. Each threshold generates a two-by-two contingency table, which contains four entries: hits (H), misses (M), false alarms (FA), and correct rejections (CR). While ROC shows for each threshold only two ratios, H/(H + M) and FA/(FA + CR), TOC reveals the size of every entry in the contingency table for each threshold (Pontius and Si 2014).
+Construct the table for the Total Operating Characteristic (TOC) curve for spatial or non-spatial data. The TOC method is a modification of the ROC method which measures the ability of an index variable to diagnose either presence or absence of a characteristic. The diagnosis depends on whether the value of an index variable is above a threshold. Each threshold generates a two-by-two contingency table, which contains four entries: hits (H), misses (M), false alarms (FA), and correct rejections (CR). While ROC shows for each threshold only two ratios, H/(H + M) and FA/(FA + CR), TOC reveals the size of every entry in the contingency table for each threshold (Pontius Jr., R.G., Si, K. 2014. <doi:10.1080/13658816.2013.862623>).
 }
 \usage{
 \S4method{TOC}{numeric,numeric}(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, P=NA, Q=NA, 
@@ -58,9 +58,9 @@ thresholds are calculated as the unique values of the index object after masking
 an object of class \code{Toc} containing the TOC table, the area under the curve (AUC), maximum AUC and minimum AUC, the prevalence, the population and the data units (for data in the TOC table slot, and the prevalence and population slots) 
 }
 \references{
-Pontius Jr., R.G., Kangpin, Si. 2014. \emph{The total operating characteristic to measure diagnostic ability for multiple thresholds}. International Journal of Geographical Information Science 28 (3): 570-583.
+Pontius Jr., R.G., Kangpin, Si. 2014. \emph{The total operating characteristic to measure diagnostic ability for multiple thresholds}. International Journal of Geographical Information Science 28 (3): 570-583. <doi:10.1080/13658816.2013.862623>
 
-Pontius, G., Parmentier, B. 2014. \emph{Recommendations for using the Relative Operating Characteristic (ROC)}. Landscape Ecology 29 (3): 367-382.
+Pontius, G., Parmentier, B. 2014. \emph{Recommendations for using the Relative Operating Characteristic (ROC)}. Landscape Ecology 29 (3): 367-382. <doi:10.1007/s10980-013-9984-8>
 }
 \seealso{
 \code{\link{plot}}
