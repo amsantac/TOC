@@ -13,12 +13,12 @@ Plot a Total Operating Characteristic (TOC) curve or a Relative Operating Charac
 }
 
 \usage{
-\S4method{plot}{Toc}(x, labelThres=FALSE, modelLeg="Model", digits=3, nticks=5, digitsL=1, 
-posL = NULL, offsetL = 0.5, ...)
+\S4method{plot}{Toc}(x, labelThres = FALSE, modelLeg = "Model", digits = 3, 
+nticks = 5, digitsL = 1, posL = NULL, offsetL = 0.5, ...)
    
 
-\S4method{plot}{Roc}(x, labelThres=FALSE, modelLeg="Model", digits=3, nticks=5, digitsL=1, 
-posL = NULL, offsetL = 0.5, ...)
+\S4method{plot}{Roc}(x, labelThres = FALSE, modelLeg = "Model", digits = 3, 
+nticks = 5, digitsL = 1, posL = NULL, offsetL = 0.5, ...)
 }
 
 \arguments{
@@ -61,9 +61,9 @@ Pontius, G., Parmentier, B. 2014. \emph{Recommendations for using the Relative O
 \code{\link{TOC}}, \code{\link{ROC}}
 }
 \examples{
-index <- raster(system.file("external/Prob_Map2.rst", package = "TOC"))
-boolean <- raster(system.file("external/Change_Map2b.rst", package = "TOC"))
-mask <- raster(system.file("external/MASK4.rst", package="TOC"))
+index <- rast(system.file("external/Prob_Map2.rst", package = "TOC"))
+boolean <- rast(system.file("external/Change_Map2b.rst", package = "TOC"))
+mask <- rast(system.file("external/MASK4.rst", package = "TOC"))
 
 ## create and plot the TOC curve
 tocd <- TOC(index, boolean, mask, nthres = 100)

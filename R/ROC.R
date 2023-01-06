@@ -9,16 +9,16 @@ if (!isGeneric("ROC")) {
 		standardGeneric("ROC"))
 }	
 
-setMethod("ROC", signature=c('numeric', 'numeric'), 
-          definition = function(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, progress=FALSE)  {
-            tocd <- .ROCnosp(index, boolean, mask=mask, nthres=nthres, thres=thres, NAval=NAval, progress=progress)
+setMethod("ROC", signature = c('numeric', 'numeric'), 
+          definition = function(index, boolean, mask = NULL, nthres = NULL, thres = NULL, NAval = 0, progress = FALSE)  {
+            tocd <- .ROCnosp(index, boolean, mask = mask, nthres = nthres, thres = thres, NAval = NAval, progress = progress)
             return(tocd)
           }
           )
 
-setMethod("ROC", signature=c('RasterLayer', 'RasterLayer'), 
-          definition = function(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, progress=FALSE)  {
-            tocd <- .ROCsp(index, boolean, mask=mask, nthres=nthres, thres=thres, NAval=NAval, progress=progress)
+setMethod("ROC", signature = c('SpatRaster', 'SpatRaster'), 
+          definition = function(index, boolean, mask = NULL, nthres = NULL, thres = NULL, NAval = 0, progress = FALSE)  {
+            tocd <- .ROCsp(index, boolean, mask = mask, nthres = nthres, thres = thres, NAval = NAval, progress = progress)
             return(tocd)
           }
           )

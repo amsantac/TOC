@@ -11,7 +11,7 @@ graphics::plot(rocd$falseAlarms1, rocd$Model1, type="l", lty=1,
      col=rgb(255,0,0, maxColorValue=255), bty="n", xaxt="n", yaxt="n", xlim=c(0,1), ylim=c(0,1), asp=1, ...)
 axis(1, pos=0, xaxp = c(0, 1, nticks), cex.axis=0.9, ...)
 axis(2, pos=0, xaxp = c(0, 1, nticks), cex.axis=0.9, ...)
-points(rocd$falseAlarms1, rocd$Model1, pch=17, col=rgb(255,0,0, maxColorValue=255))
+graphics::points(rocd$falseAlarms1, rocd$Model1, pch=17, col=rgb(255,0,0, maxColorValue=255))
 
 # maximum
 lines(c(0, 1, 1), c(1, 1, 0), lwd=1, col="black")

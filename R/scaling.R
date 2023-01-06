@@ -9,7 +9,7 @@ if (!isGeneric("scaling")) {
     standardGeneric("scaling"))
 }	
 
-setMethod("scaling", signature='Toc', 
+setMethod("scaling", signature = 'Toc', 
           def = function(x, scalingFactor, newUnits)  {
             x@table[, 2:3] <- x@table[, 2:3]/scalingFactor
             x@prevalence <- x@prevalence/scalingFactor

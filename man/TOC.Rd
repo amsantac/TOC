@@ -4,7 +4,7 @@
 
 \alias{TOC}
 \alias{TOC,numeric,numeric-method}
-\alias{TOC,RasterLayer,RasterLayer-method}
+\alias{TOC,SpatRaster,SpatRaster-method}
 
 \title{
 Construct the table for the TOC curve
@@ -13,21 +13,21 @@ Construct the table for the TOC curve
 Construct the table for the Total Operating Characteristic (TOC) curve for spatial or non-spatial data. The TOC method is a modification of the ROC method which measures the ability of an index variable to diagnose either presence or absence of a characteristic. The diagnosis depends on whether the value of an index variable is above a threshold. Each threshold generates a two-by-two contingency table, which contains four entries: hits (H), misses (M), false alarms (FA), and correct rejections (CR). While ROC shows for each threshold only two ratios, H/(H + M) and FA/(FA + CR), TOC reveals the size of every entry in the contingency table for each threshold (Pontius Jr., R.G., Si, K. 2014. <doi:10.1080/13658816.2013.862623>).
 }
 \usage{
-\S4method{TOC}{numeric,numeric}(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, P=NA, Q=NA, 
-progress=FALSE, units=character(0))
-\S4method{TOC}{RasterLayer,RasterLayer}(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, P=NA, Q=NA, 
-    progress=FALSE)
+\S4method{TOC}{numeric,numeric}(index, boolean, mask = NULL, nthres = NULL, thres = NULL, 
+NAval = 0, P = NA, Q = NA, progress = FALSE, units = character(0))
+\S4method{TOC}{SpatRaster,SpatRaster}(index, boolean, mask = NULL, nthres = NULL, thres = NULL, 
+NAval = 0, P = NA, Q = NA, progress = FALSE)
 }
 
 \arguments{
   \item{index}{
-index object of class numeric or RasterLayer
+index object of class numeric or SpatRaster
 }
   \item{boolean}{
-boolean object of class numeric or RasterLayer
+boolean object of class numeric or SpatRaster
 }
   \item{mask}{
-mask object of class numeric or RasterLayer
+mask object of class numeric or SpatRaster
 }
   \item{nthres}{
 an optional integer indicating the number of equal-interval thresholds to be evaluated for the TOC curve. See Details below
@@ -66,9 +66,9 @@ Pontius, G., Parmentier, B. 2014. \emph{Recommendations for using the Relative O
 \code{\link{plot}}
 }
 \examples{
-index <- raster(system.file("external/Prob_Map2.rst", package = "TOC"))
-boolean <- raster(system.file("external/Change_Map2b.rst", package = "TOC"))
-mask <- raster(system.file("external/MASK4.rst", package = "TOC"))
+index <- rast(system.file("external/Prob_Map2.rst", package = "TOC"))
+boolean <- rast(system.file("external/Change_Map2b.rst", package = "TOC"))
+mask <- rast(system.file("external/MASK4.rst", package = "TOC"))
 
 ## thresholds can be defined by indicating the number of equal-interval thresholds 
 tocd <- TOC(index, boolean, mask, nthres = 100)
@@ -80,7 +80,8 @@ thresholds <- seq(min(unique(index)), max(unique(index)) + 1,
 tocd <- TOC(index, boolean, mask, thres = thresholds)
 tocd
 
-## all the unique values of the index object can be evaluated as thresholds (default option)
+## all the unique values of the index object can be evaluated as thresholds 
+## (default option)
 \dontrun{
 tocd <- TOC(index, boolean, mask, progress = TRUE)
 tocd
@@ -88,9 +89,9 @@ tocd
 
 ## generate the TOC curve using non-spatial data (i.e., an object of class numeric)
 \dontrun{
-index <- getValues(index)
-boolean <- getValues(boolean)
-mask <- getValues(mask)
+index <- values(index, mat = FALSE)
+boolean <- values(boolean, mat = FALSE)
+mask <- values(mask, mat = FALSE)
 tocd <- TOC(index, boolean, mask, nthres = 100)
 }
 }

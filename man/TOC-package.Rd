@@ -10,8 +10,8 @@ Construction of the Total Operating Characteristic (TOC) Curve and the Receiver 
 \tabular{ll}{
 Package: \tab TOC\cr
 Type: \tab Package\cr
-Version: \tab 0.0-5\cr
-Date: \tab 2020-05-04\cr
+Version: \tab 0.0-6\cr
+Date: \tab 2023-01-06\cr
 License: \tab GPL-3\cr
 LazyLoad: \tab yes\cr
 }

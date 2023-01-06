@@ -4,7 +4,7 @@
 
 \alias{ROC}
 \alias{ROC,numeric,numeric-method}
-\alias{ROC,RasterLayer,RasterLayer-method}
+\alias{ROC,SpatRaster,SpatRaster-method}
 
 \title{
 Construct the table for the ROC curve
@@ -13,20 +13,22 @@ Construct the table for the ROC curve
 Construct the table for the Relative Operating Characteristic (ROC) curve for spatial or non-spatial data
 }
 \usage{
-\S4method{ROC}{numeric,numeric}(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, progress=FALSE)
+\S4method{ROC}{numeric,numeric}(index, boolean, mask = NULL, nthres = NULL, thres = NULL, 
+NAval = 0, progress = FALSE)
 
-\S4method{ROC}{RasterLayer,RasterLayer}(index, boolean, mask=NULL, nthres=NULL, thres=NULL, NAval=0, progress=FALSE)
+\S4method{ROC}{SpatRaster,SpatRaster}(index, boolean, mask = NULL, nthres = NULL, thres = NULL, 
+NAval = 0, progress = FALSE)
 }
 
 \arguments{
   \item{index}{
-index object of class numeric or RasterLayer
+index object of class numeric or SpatRaster
 }
   \item{boolean}{
-boolean object of class numeric or RasterLayer
+boolean object of class numeric or SpatRaster
 }
   \item{mask}{
-mask object of class numeric or RasterLayer
+mask object of class numeric or SpatRaster
 }
   \item{nthres}{
 an optional integer indicating the number of equal-interval thresholds to be evaluated for the ROC curve. See Details below
@@ -56,9 +58,9 @@ Pontius, G., Parmentier, B. 2014. \emph{Recommendations for using the Relative O
 \code{\link{plot}}
 }
 \examples{
-index <- raster(system.file("external/Prob_Map2.rst", package = "TOC"))
-boolean <- raster(system.file("external/Change_Map2b.rst", package = "TOC"))
-mask <- raster(system.file("external/MASK4.rst", package = "TOC"))
+index <- rast(system.file("external/Prob_Map2.rst", package = "TOC"))
+boolean <- rast(system.file("external/Change_Map2b.rst", package = "TOC"))
+mask <- rast(system.file("external/MASK4.rst", package = "TOC"))
 
 ## thresholds can be defined by indicating the number of equal-interval thresholds 
 rocd <- ROC(index, boolean, mask, nthres = 100)
@@ -70,7 +72,8 @@ thresholds <- seq(min(unique(index)), max(unique(index)) + 1,
 rocd <- ROC(index, boolean, mask, thres = thresholds)
 rocd
 
-## all the unique values of the index object can be evaluated as thresholds (default option)
+## all the unique values of the index object can be evaluated as thresholds 
+## (default option)
 \dontrun{
 rocd <- ROC(index, boolean, mask, progress = TRUE)
 rocd
@@ -78,10 +81,15 @@ rocd
 
 ## generate the ROC curve using non-spatial data (i.e., an object of class numeric)
 \dontrun{
-index <- getValues(index)
-boolean <- getValues(boolean)
-mask <- getValues(mask)
+index <- rast(system.file("external/Prob_Map2.rst", package = "TOC"))
+boolean <- rast(system.file("external/Change_Map2b.rst", package = "TOC"))
+mask <- rast(system.file("external/MASK4.rst", package = "TOC"))
+
+index <- values(index, mat = FALSE)
+boolean <- values(boolean, mat = FALSE)
+mask <- values(mask, mat = FALSE)
 rocd <- ROC(index, boolean, mask, nthres = 100)
+rocd
 }
 }
 

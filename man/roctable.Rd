@@ -8,8 +8,9 @@ Construct a basic ROC table
 TOC internal function. Construct a basic ROC table
 }
 \usage{
-roctable(indval, boolval, maskval=NULL, nthres=NULL, thres=NULL, NAval=0, 
-         progress=FALSE, ones.bool=NULL, zeros.bool=NULL)
+roctable(indval, boolval, maskval = NULL, nthres = NULL, 
+         thres = NULL, NAval = 0, progress = FALSE, 
+         ones.bool = NULL, zeros.bool = NULL)
 }
 
 \arguments{

@@ -34,9 +34,9 @@ an object of class TOC
 \code{\link{TOC}}, \code{\link{ROC}}
 }
 \examples{
-index <- raster(system.file("external/Prob_Map2.rst", package = "TOC"))
-boolean <- raster(system.file("external/Change_Map2b.rst", package = "TOC"))
-mask <- raster(system.file("external/MASK4.rst", package = "TOC"))
+index <- rast(system.file("external/Prob_Map2.rst", package = "TOC"))
+boolean <- rast(system.file("external/Change_Map2b.rst", package = "TOC"))
+mask <- rast(system.file("external/MASK4.rst", package = "TOC"))
 tocd <- TOC(index, boolean, mask, nthres = 100)
 plot(tocd)
 

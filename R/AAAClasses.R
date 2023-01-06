@@ -17,8 +17,6 @@ setClass('Roc',
          validity = function(object)	{
            c1 <- inherits(object@table, "data.frame")
            if (!c1) { stop('invalid class for @table') }
-           #c2 <- (object@ymin <= object@ymax)
-           #if (lapply(object, function(x) any(!is.numeric(x)))) { stop('invalid extent: ymin >= ymax') }
            return(c1)
          }
 )
@@ -37,8 +35,6 @@ setClass('Toc',
 	validity = function(object)	{
 		c1 <- inherits(object@table, "data.frame")
 		if (!c1) { stop('invalid class for @TOCtable') }
-		#c2 <- (object@ymin <= object@ymax)
-		#if (lapply(object, function(x) any(!is.numeric(x)))) { stop('invalid extent: ymin >= ymax') }
 		return(c1)
 	},
   contains = "Roc"
