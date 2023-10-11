@@ -1,6 +1,8 @@
 TOC R package
 ======
 
+[![](https://cranlogs.r-pkg.org/badges/TOC)](https://cran.rstudio.com/web/packages/TOC/index.html)
+
 **1. Installation**
 
 The TOC R package can be installed from CRAN, the official R packages repository, or from this GitHub repository.
@@ -53,6 +55,9 @@ For help on the functions implemented in the TOC package see the [reference manu
 ?TOC
 ```
 
+<!--
+
 **3. Shiny TOC web app**
 
 An interactive web application for TOC developed with [Shiny](http://shiny.rstudio.com) can be found [here](https://amsantac.shinyapps.io/TOCapp). The [Shiny TOC app](https://amsantac.shinyapps.io/TOCapp) allows the construction of the TOC and ROC curves for spatial and non-spatial data through a graphical user interface. 
+-->
